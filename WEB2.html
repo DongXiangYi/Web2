@@ -1008,32 +1008,35 @@
 	   	</div>
 	</div>
 
+<script type="text/javascript">
 
+
+        //公告栏
+        var PartArea = document.getElementById('part2');
+        var Scroll1 = document.getElementById('scroll1');
+        var Scroll2 = document.getElementById('scroll2');
+
+        Scroll2.innerHTML = Scroll1.innerHTML;
+
+        function roll() {
+            if(Scroll2.offsetHeight - PartArea.scrollTop <= 0) {
+                PartArea.scrollTop -= Scroll1.offsetHeight;
+            } else {
+                PartArea.scrollTop++;
+            }
+        }
+
+        var StopRoll = setInterval(roll, 60);
+
+        PartArea.onmouseover = function () {
+            clearInterval(StopRoll);
+        }
+        PartArea.onmouseout = function () {
+            StopRoll = setInterval(roll, 60);
+        }
+
+    </script>
 <script>
-
-	//右边
-	var youbian = document.getElementById('youbian');
-	var youbian1 = document.getElementById('youbian1');
-	var youbian2 = document.getElementById('youbian2');
-	var youbian3 = document.getElementById('youbian3');
-	var youbian4 = document.getElementById('youbian4');
-	var bian1 = document.getElementById('bian1');
-	var bian2 = document.getElementById('bian2');
-	var time;
-	youbian1.onmouseover = function(){
-		youbian1.style.width = '125px';
-		clearInterval(time);
-		time = setInterval(function(){
-			youbian1.style.right = parseInt(xiaoBang.style.width) + 1 + 'px';
-			if(parseInt(xiaoBang.style.width) == 0){
-				clearInterval(time);
-			}
-		},5)
-	}
-	youbian1.onmouseout = function(){
-		youbian1.style.width = '125px';
-		clearInterval(time);
-	}
 	//充值话费
 	var yuan = document.getElementById('yuan');
 	var money = document.getElementById('money');
@@ -1133,33 +1136,73 @@
 			}
 		}
 	}
+	//右边
+	var youbian = document.getElementById('youbian');
+	var youbian1 = document.getElementById('youbian1');
+	var youbian2 = document.getElementById('youbian2');
+	var youbian3 = document.getElementById('youbian3');
+	var youbian4 = document.getElementById('youbian4');
+	var bian1 = document.getElementById('bian1');
+	var bian2 = document.getElementById('bian2');
+	youbian1.style.right = "-80px";
+	var time;
+	youbian1.onmouseover = function(){
+			clearInterval(time);
+			 time = setInterval(function(){
+				youbian1.style.right = parseInt(youbian1.style.right)+1+'px';
+				if(parseInt(youbian1.style.right)==0){
+					clearInterval(time);
+				}
+			}, 1)
+
+		}
+	youbian1.onmouseout = function(){
+		youbian1.style.right = '-80px';
+		clearInterval(time);
+	}
+	youbian2.style.right = "-80px";
+	youbian2.onmouseover = function(){
+		clearInterval(time);
+		time = setInterval(function(){
+			youbian2.style.right = parseInt(youbian2.style.right)+1+'px';
+			if(parseInt(youbian2.style.right)==0){
+				clearInterval(time);
+				youbian2.style.display = "block";
+			}
+		},7)
+	}
+	youbian2.onmouseout = function(){
+		youbian2.style.right = "-80px";
+		clearInterval(time);	
+	}
+	youbian3.style.right = "-80px";
+	youbian3.onmouseover = function(){
+		clearInterval(time);
+		time = setInterval(function(){
+			youbian3.style.right = parseInt(youbian3.style.right)+1+'px';
+			if(parseInt(youbian3.style.right)==0){
+				clearInterval(time);
+			}
+		}, 7)
+	}
+	youbian3.onmouseout = function(){
+		clearInterval(time);
+		youbian3.style.right = "-80px";
+	}
+	youbian4.style.right = "-80px";
+	youbian4.onmouseover = function(){
+		clearInterval(time);
+		time = setInterval(function(){
+			youbian4.style.right = parseInt(youbian4.style.right)+1+'px';
+			if(parseInt(youbian4.style.right)==0){
+				clearInterval(time);
+			}
+		},7)
+	}
+	youbian4.onmouseout = function(){
+		clearInterval(time);
+		youbian4.style.right = "-80px";
+	}
 </script>
-<script type="text/javascript">
-
-
-        //公告栏
-        var PartArea = document.getElementById('part2');
-        var Scroll1 = document.getElementById('scroll1');
-        var Scroll2 = document.getElementById('scroll2');
-
-        Scroll2.innerHTML = Scroll1.innerHTML;
-
-        function roll() {
-            if(Scroll2.offsetHeight - PartArea.scrollTop <= 0) {
-                PartArea.scrollTop -= Scroll1.offsetHeight;
-            } else {
-                PartArea.scrollTop++;
-            }
-        }
-
-        var StopRoll = setInterval(roll, 60);
-
-        PartArea.onmouseover = function () {
-            clearInterval(StopRoll);
-        }
-        PartArea.onmouseout = function () {
-            StopRoll = setInterval(roll, 60);
-        }
-
-    </script>
-</body></html>
+</body>
+</html>
